@@ -3,43 +3,39 @@ package com.bridgelabz;
 public class LinkedList {
     Node head;
     Node tail;
+    Node newNode;
 
-    public void push(int data) {
+    public void print() {
+        tail = newNode;
+    }
+
+    public Node push(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-            tail = newNode;
-        } else {
             Node temp = head;
             this.head = newNode;
             newNode.next = temp;
         }
+        return newNode;
     }
 
-    public void append(int data) {
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            this.tail.next = newNode;
-            tail = newNode;
-        }
+    public void insertInBetween(Node previousNode, Node newNode) {
+        Node tempNode = previousNode.next;
+        previousNode.next = newNode;
+        newNode.next = tempNode;
     }
 
-    public void print() {
+    public void insert(int data) {
+        Node newnode = new Node(data);
         if (head == null) {
-            System.out.println("LinkedList is Empty");
+            this.head = newnode;
+        } else if (tail == null) {
+            this.tail = newnode;
         } else {
-            Node temp = head;
-            while (temp != null) {
-                System.out.print(temp.data + " ");
-                if (temp.next != null)
-                    System.out.print(temp.data + " -> ");
-                else
-                    System.out.println(temp.data);
-                temp = temp.next;
-            }
+            Node temp = newnode;
+            temp.next = this.tail;
+            this.head.next = temp;
         }
     }
 }
