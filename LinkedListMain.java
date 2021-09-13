@@ -4,12 +4,16 @@ import java.util.Scanner;
 
 public class LinkedListMain {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter 1 to add the data at the start");
-
-        switch (scanner.nextInt()) {
+        System.out.println("Enter 2 to append element at start");
+        switch(sc.nextInt()){
             case 1:
-                Operations.addeElementAtStart();
+                Operations.addElementAtStart();
+                break;
+            case 2:
+                Operations.appendElement();
+                break;
         }
     }
 }
