@@ -38,4 +38,8 @@ public class LinkedList {
             this.head.next = temp;
         }
     }
+
+    public void pop() {
+        this.head = this.head.next;
+    }
 }
